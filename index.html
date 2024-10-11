@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* CSS */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa; /* Warna latar belakang */
+        }
+
+        .container {
+            background-color: #ffffff; /* Warna latar belakang kontainer */
+            border-radius: 8px; /* Sudut melengkung */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan */
+            padding: 20px; /* Padding di dalam kontainer */
+        }
+
+        .reset-text {
+            color: #ff4757; /* Warna teks untuk RESET */
+            font-weight: bold; /* Tebal */
+        }
+
+        .hitung-text {
+            color: #2ed573; /* Warna teks untuk HITUNG */
+            font-weight: bold; /* Tebal */
+        }
+
+        .kotak {
+            position: relative; /* Untuk mengatur posisi RESET dan HITUNG */
+            margin-top: 20px; /* Jarak atas */
+        }
+
+        .result {
+            margin-top: 20px; /* Jarak atas untuk hasil */
+            font-size: 1.5rem; /* Ukuran font untuk hasil */
+            color: #333; /* Warna teks untuk hasil */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="max-w-[90rem] mx-auto container">
+        <p class="text-center text-6xl text-black my-4">PENJUMLAHAN</p> 
+
+        <p class="block text-3xl text-black">bilangan pertama :</p>
+        <input type="number" id="bilanganPertama" class="border rounded p-2 mb-4" />
+
+        <p class="block text-3xl text-black">bilangan kedua :</p>
+        <input type="number" id="bilanganKedua" class="border rounded p-2 mb-4" />
+
+        <div class="kotak flex items-center justify-center">
+            <img class="block" src="./assets/image-76993.04356655508.png" onclick="hitung()" />
+            <p class="absolute hitung-text text-[2.50rem]" onclick="hitung()">HITUNG</p>
+        </div>
+
+        <div class="kotak flex items-center justify-center">
+            <img class="block" src="./assets/image-33904.40694534249.png" onclick="reset()" />
+            <p class="absolute reset-text text-[2.50rem]" onclick="reset()">RESET</p>
+        </div>
+
+        <div id="hasil" class="result"></div> 
+    </div>
+
+    <script>
+        // JavaScript untuk operasi penjumlahan
+        function hitung() {
+            // Ambil nilai dari input
+            const bilanganPertama = parseFloat(document.getElementById('bilanganPertama').value);
+            const bilanganKedua = parseFloat(document.getElementById('bilanganKedua').value);
+            
+            // Lakukan penjumlahan
+            const hasil = bilanganPertama + bilanganKedua;
+
+            // Tampilkan hasil
+            document.getElementById('hasil').innerText = `Hasil: ${hasil}`;
+        }
+
+        // Fungsi untuk mereset input dan hasil
+        function reset() {
+            document.getElementById('bilanganPertama').value = '';
+            document.getElementById('bilanganKedua').value = '';
+            document.getElementById('hasil').innerText = '';
+        }
+    </script>
+</body>
+
+</html>
